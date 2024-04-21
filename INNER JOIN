@@ -1,0 +1,9 @@
+SELECT 
+	YEAR(t_dept_emp.from_date) AS calendar_year,
+	t_employees.gender, 
+    COUNT(t_dept_emp.from_date) AS num_of_employees
+FROM t_dept_emp
+INNER JOIN t_employees ON t_dept_emp.emp_no = t_employees.emp_no
+GROUP BY 
+	calendar_year, gender
+HAVING calendar_year >= 1990
